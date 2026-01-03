@@ -1013,3 +1013,31 @@ body {
     padding: 3px 8px;
   }
 }
+@media (max-width: 600px) {
+  .gallery-section .section-inner,
+  .palette-section .section-inner {
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 600px) {
+  .photo-placeholder,
+  .palette-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-item,
+  .palette-item {
+    aspect-ratio: unset !important;
+    min-height: unset !important;
+    height: 160px;
+  }
+}
+@media (max-width: 600px) {
+  .section-inner {
+    overflow-x: hidden;
+  }
+}
