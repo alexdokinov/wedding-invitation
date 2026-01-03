@@ -878,3 +878,50 @@ body {
     animation-duration: 16s;
   }
 }
+@media (max-width: 600px) {
+  .palette-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .palette-section .section-inner {
+    overflow: hidden;
+  }
+}
+@media (max-width: 600px) {
+  .photo-placeholder {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-section .section-inner {
+    overflow: hidden;
+  }
+}
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.names span {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+}
+
+.names .amp {
+  font-size: 32px;
+  opacity: 0.5;
+}
+
+/* мобильная версия */
+@media (max-width: 600px) {
+  .names span {
+    font-size: 40px;
+  }
+
+  .names .amp {
+    font-size: 28px;
+  }
+}

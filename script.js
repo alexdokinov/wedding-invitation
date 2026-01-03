@@ -76,3 +76,17 @@ if (august) {
     setTimeout(() => tooltip.classList.remove("show"), 2500);
   });
 }
+let musicStarted = false;
+
+function tryAutoPlay() {
+  if (musicStarted) return;
+
+  music.play().then(() => {
+    musicStarted = true;
+    isPlaying = true;
+    musicBtn.textContent = "❚❚ Музыка";
+  }).catch(() => {});
+}
+
+window.addEventListener("scroll", tryAutoPlay, { once: true });
+window.addEventListener("touchstart", tryAutoPlay, { once: true });
