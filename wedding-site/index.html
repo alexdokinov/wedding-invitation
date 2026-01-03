@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тимофей & Валерия — 24.07.2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- ===== КНОПКА МУЗЫКИ ===== -->
+<button id="music-btn" class="music-btn">♪ Музыка</button>
+
+<!-- ===== ФОНОВАЯ МУЗЫКА ===== -->
+<audio id="bg-music" loop>
+  <source src="audio/music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== ЭКРАН 1: ТАЙМЕР ===== -->
+<section class="timer-section">
+  <div class="timer fade-up">
+    <div class="time-block fade-up">
+      <span id="months">0</span>
+      <small>месяцев</small>
+    </div>
+    <div class="time-block fade-up">
+      <span id="days">0</span>
+      <small>дней</small>
+    </div>
+    <div class="time-block fade-up">
+      <span id="hours">0</span>
+      <small>часов</small>
+    </div>
+    <div class="time-block fade-up">
+      <span id="minutes">0</span>
+      <small>минут</small>
+    </div>
+    <div class="time-block fade-up">
+      <span id="seconds">0</span>
+      <small>секунд</small>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Приглашение ↓</div>
+</section>
+
+<!-- ===== ПРИГЛАШЕНИЕ ===== -->
+<section class="invite-section fade-up" id="invite">
+  <div class="section-inner">
+    <h1>Тимофей & Валерия</h1>
+    <p class="date">24 июля 2026</p>
+
+    <p class="text">
+      С большой радостью приглашаем вас<br>
+      разделить с нами особенный день —<br>
+      день нашей свадьбы.
+    </p>
+
+    <p class="text">
+      Мы будем счастливы видеть вас рядом<br>
+      24 июля 2026 года<br>
+      в загородном клубе «SOMA».
+    </p>
+
+    <p class="signature">
+      С любовью,<br>
+      Тимофей и Валерия 🤍
+    </p>
+  </div>
+</section>
+
+<!-- ===== СПЕЦИАЛЬНЫЙ ГОСТ ===== -->
+<section class="dog-section fade-up">
+  <div class="section-inner">
+
+    <p class="dog-name">
+      <span id="august-name">Август</span>
+    </p>
+
+    <div class="paw paw-1">🐾</div>
+    <div class="paw paw-2">🐾</div>
+
+    <div class="dog-image">
+      <img src="images/dog.jpg" alt="Наш особый гость">
+    </div>
+
+    <h2>Особый гость вечера 🐾</h2>
+
+    <p class="dog-text">
+      На нашем празднике будет присутствовать<br>
+      самый обаятельный и хвостатый член семьи.
+    </p>
+
+    <p class="dog-text">
+      Он очень дружелюбный,<br>
+      очень милый<br>
+      и <strong>очень любит клянчить еду</strong>.
+    </p>
+
+    <p class="dog-text">
+      Но, увы, ему <strong>нельзя ничего со стола</strong>.
+    </p>
+
+    <p class="dog-text">
+      Поэтому просим вас<br>
+      не поддаваться его обаянию<br>
+      и не делиться угощениями 🤍
+    </p>
+
+    <p class="dog-note">
+      Зато поглаживания и внимание<br>
+      приветствуются без ограничений
+    </p>
+
+    <p class="august-joke">
+      Август: «Я слежу 👀 и всё вижу»
+    </p>
+  </div>
+</section>
+
+
+
+<!-- ===== ЦВЕТЫ И ВИНО ===== -->
+<section class="wine-section fade-up">
+  <div class="section-inner">
+    <h2>Небольшая просьба 🤍</h2>
+
+    <p class="wine-text">
+      Мы очень любим цветы,<br>
+      но ещё больше любим хорошее вино<br>
+      (в частности вино игристое).
+    </p>
+
+    <p class="wine-text">
+      Будем рады, если вместо букетов<br>
+      вы порадуете нас бутылочкой полусладкого или полусухого,<br>
+      которую мы с удовольствием<br>
+      откроем в особенный день.
+    </p>
+
+    <p class="wine-note">
+      Спасибо за понимание и тепло 🍾
+    </p>
+  </div>
+</section>
+
+<!-- ===== ЦВЕТОВАЯ ПАЛИТРА ===== -->
+<section class="palette-section fade-up">
+  <div class="section-inner">
+
+    <p class="palette-intro">
+      Цветовая палитра нашей свадьбы<br>
+      скоро появится здесь 🤍
+    </p>
+
+    <div class="palette-grid">
+      <div class="palette-item">Цвет</div>
+      <div class="palette-item">Цвет</div>
+      <div class="palette-item">Цвет</div>
+      <div class="palette-item">Цвет</div>
+      <div class="palette-item">Цвет</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ГАЛЕРЕЯ ===== -->
+<section class="gallery-section fade-up">
+  <div class="section-inner">
+
+    <p class="gallery-intro">
+      Скоро здесь появятся наши фотографии 🤍
+    </p>
+
+    <div class="photo-placeholder">
+      <div class="gallery-item">Фото</div>
+      <div class="gallery-item">Фото</div>
+      <div class="gallery-item">Фото</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== КАК ДОБРАТЬСЯ ===== -->
+<section class="map-section fade-up">
+  <div class="section-inner">
+    <h2>Как добраться</h2>
+
+    <p class="map-text">
+      Мы будем ждать вас<br>
+      в загородном клубе «SOMA»
+    </p>
+
+    <div class="map-wrapper">
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?ll=39.687692,51.770779&z=15&pt=39.687692,51.770779,pm2rdm"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <a
+      class="map-link"
+      href="https://yandex.ru/maps/?text=Загородный%20клуб%20SOMA"
+      target="_blank">
+      Построить маршрут →
+    </a>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
