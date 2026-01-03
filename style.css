@@ -925,3 +925,91 @@ body {
     font-size: 28px;
   }
 }
+@media (max-width: 600px) {
+  .gallery-section .section-inner,
+  .palette-section .section-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-item,
+  .palette-item {
+    aspect-ratio: auto;
+    height: 180px;
+  }
+}
+@media (max-width: 600px) {
+  .photo-placeholder,
+  .palette-grid {
+    max-width: 100%;
+  }
+}
+/* ===== УСИЛЕНИЕ ГЛАВНЫХ ТЕКСТОВ СЕКЦИЙ ===== */
+.section-inner h1,
+.section-inner h2 {
+  color: #3a3a3a;
+}
+
+.gallery-intro,
+.palette-intro {
+  color: #6a6a6a;
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .gallery-intro,
+  .palette-intro {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+/* ===== ИМЕНА: УСИЛЕНИЕ ЧИТАЕМОСТИ ===== */
+.names span {
+  color: #4a4a4a;      /* темнее, но не чёрный */
+  font-weight: 500;   /* чуть плотнее */
+}
+
+.names .amp {
+  color: #6a6a6a;
+}
+.names {
+  position: relative;
+}
+
+.names::before {
+  content: "";
+  position: absolute;
+  inset: -8px -12px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  z-index: -1;
+}
+@media (max-width: 600px) {
+  .names::before {
+    inset: -6px -10px;
+  }
+}
+/* ===== УСИЛЕНИЕ ЗАГОЛОВКОВ СЕКЦИЙ ===== */
+.section-inner h2 {
+  color: #4a4a4a;     /* глубже, чем сейчас */
+  font-weight: 500;
+}
+.section-inner h2 {
+  position: relative;
+  display: inline-block;
+  padding: 4px 10px;
+}
+
+.section-inner h2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  z-index: -1;
+}
+@media (max-width: 600px) {
+  .section-inner h2 {
+    padding: 3px 8px;
+  }
+}
