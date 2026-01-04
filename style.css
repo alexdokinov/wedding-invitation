@@ -1132,4 +1132,40 @@ body {
   .slider-btn.prev { left: 10px; }
   .slider-btn.next { right: 10px; }
 }
+@media (max-width: 600px) {
+  .gallery-section .section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-slider {
+    justify-content: center;
+  }
+
+  .slider-image {
+    max-width: 90vw;
+  }
+}
+@media (max-width: 600px) {
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+  }
+
+  .slider-btn.prev {
+    left: 12px;
+  }
+
+  .slider-btn.next {
+    right: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-section {
+    padding-bottom: 40px;
+  }
+}
 
