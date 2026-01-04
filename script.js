@@ -90,3 +90,36 @@ function tryAutoPlay() {
 
 window.addEventListener("scroll", tryAutoPlay, { once: true });
 window.addEventListener("touchstart", tryAutoPlay, { once: true });
+/* ===== ГАЛЕРЕЯ-СЛАЙДЕР ===== */
+
+const galleryImages = [
+  "images/gallery/1.jpg",
+  "images/gallery/2.jpg",
+  "images/gallery/3.jpg",
+  "images/gallery/4.jpg"
+];
+
+let currentSlide = 0;
+
+const sliderImg = document.querySelector(".slider-image img");
+const prevBtn = document.querySelector(".slider-btn.prev");
+const nextBtn = document.querySelector(".slider-btn.next");
+
+function updateSlide(index) {
+  sliderImg.style.opacity = 0;
+
+  setTimeout(() => {
+    sliderImg.src = galleryImages[index];
+    sliderImg.style.opacity = 1;
+  }, 200);
+}
+
+prevBtn.addEventListener("click", () => {
+  currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+  updateSlide(currentSlide);
+});
+
+nextBtn.addEventListener("click", () => {
+  currentSlide = (currentSlide + 1) % galleryImages.length;
+  updateSlide(currentSlide);
+});
