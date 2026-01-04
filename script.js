@@ -123,3 +123,55 @@ nextBtn.addEventListener("click", () => {
   currentSlide = (currentSlide + 1) % galleryImages.length;
   updateSlide(currentSlide);
 });
+/* ===== SWIPE ДЛЯ ГАЛЕРЕИ ===== */
+
+let startX = 0;
+let isSwiping = false;
+
+const slider = document.querySelector(".gallery-slider");
+
+slider.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  isSwiping = true;
+});
+
+slider.addEventListener("touchmove", (e) => {
+  if (!isSwiping) return;
+
+  const diffX = e.touches[0].clientX - startX;
+
+  // свайп влево
+  if (diffX < -60) {
+    nextBtn.click();
+    isSwiping = false;
+  }
+
+  // свайп вправо
+  if (diffX > 60) {
+    prevBtn.click();
+    isSwiping = false;
+  }
+});
+
+slider.addEventListener("touchend", () => {
+  isSwiping = false;
+});
+/* ===== АВТОЛИСТАНИЕ ===== */
+
+let autoSlideInterval = null;
+let autoSlideDelay = 6000; // 6 секунд — очень мягко
+
+function startAutoSlide() {
+  autoSlideInterval = setInterval(() => {
+    nextBtn.click();
+  }, autoSlideDelay);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = null;
+}
+startAutoSlide();
+prevBtn.addEventListener("click", stopAutoSlide);
+nextBtn.addEventListener("click", stopAutoSlide);
+slider.addEventListener("touchstart", stopAutoSlide);
