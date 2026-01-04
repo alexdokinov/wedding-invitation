@@ -96,21 +96,38 @@ const galleryImages = [
   "images/gallery/1.jpg",
   "images/gallery/2.jpg",
   "images/gallery/3.jpg",
-  "images/gallery/4.jpg"
+  "images/gallery/4.jpg",
+  "images/gallery/5.jpg",
+  "images/gallery/6.jpg"
 ];
-
+const galleryCaptions = [
+  "Здесь мы были знакомы всего лишь месяц.<br>Тогда я понял, что бежать мне некуда.<br>Тогда я поняла, что он от меня никуда не убежит.",
+  "Это была наша первая годовщина.<br>Все-таки нужно было бежать...",
+  "На этой фотографии мы вместе уже чуть больше года.<br>К нашей команде присоединился новый \"игрок\".<br>И каждый последующий важный момент нашей жизни он проживал вместе с нами.",
+  "Наша вторая годовщина.<br>Мы уже не представляли жизнь друг без друга",
+  "День нашей третьей годовщины.<br>Тим меня сфоткал перед самым прекрасным вечером нашей жизни.<br>Он думал, что я ничего не знаю.<br>Но я догадывалась.",
+  "Оказывается, догадывалась...<br>Она сказала: \"Да\""
+];
 let currentSlide = 0;
 
 const sliderImg = document.querySelector(".slider-image img");
+const captionEl = document.querySelector(".gallery-caption");
 const prevBtn = document.querySelector(".slider-btn.prev");
 const nextBtn = document.querySelector(".slider-btn.next");
+const indicatorEl = document.querySelector(".gallery-indicator");
 
 function updateSlide(index) {
   sliderImg.style.opacity = 0;
+  captionEl.style.opacity = 0;
 
   setTimeout(() => {
     sliderImg.src = galleryImages[index];
+    captionEl.innerHTML = galleryCaptions[index];
+
     sliderImg.style.opacity = 1;
+    captionEl.style.opacity = 1;
+
+    updateIndicator();
   }, 200);
 }
 
@@ -172,6 +189,13 @@ function stopAutoSlide() {
   autoSlideInterval = null;
 }
 startAutoSlide();
+captionEl.innerHTML = galleryCaptions[0];
+captionEl.style.opacity = 1;
+updateIndicator();
 prevBtn.addEventListener("click", stopAutoSlide);
 nextBtn.addEventListener("click", stopAutoSlide);
 slider.addEventListener("touchstart", stopAutoSlide);
+
+function updateIndicator() {
+  indicatorEl.textContent = `${currentSlide + 1} / ${galleryImages.length}`;
+}

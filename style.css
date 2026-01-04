@@ -1260,11 +1260,63 @@ body {
   }
 }
 .gallery-slider {
+  position: relative;
   overflow: visible;
 }
 @media (max-width: 600px) {
   .gallery-section .section-inner {
     overflow: visible !important;
+  }
+}
+/* Кнопки галереи — всегда поверх стеклянного слоя */
+.slider-btn {
+  z-index: 10;
+}
+.section-inner {
+  position: relative;
+  z-index: 1;
+}
+/* ===== ПОДПИСЬ К ФОТО ===== */
+.gallery-caption {
+  margin-top: 24px;
+  text-align: center;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+
+  color: #6a6a6a;
+  opacity: 1;
+
+  transition: opacity 0.4s ease;
+}
+
+/* ===== ИНДИКАТОР ФОТО ===== */
+.gallery-indicator {
+  margin-top: 12px;
+  text-align: center;
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: #9a9a9a;
+}
+@media (max-width: 600px) {
+  .gallery-caption {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .gallery-indicator {
+    font-size: 12px;
+  }
+}
+.gallery-slider {
+  margin-bottom: 32px;
+}
+@media (max-width: 600px) {
+  .gallery-slider {
+    margin-bottom: 24px;
   }
 }
 
