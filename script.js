@@ -116,6 +116,10 @@ const prevBtn = document.querySelector(".slider-btn.prev");
 const nextBtn = document.querySelector(".slider-btn.next");
 const indicatorEl = document.querySelector(".gallery-indicator");
 
+function updateIndicator() {
+  indicatorEl.textContent = `${currentSlide + 1} / ${galleryImages.length}`;
+}
+
 function updateSlide(index) {
   sliderImg.style.opacity = 0;
   captionEl.style.opacity = 0;
@@ -174,13 +178,7 @@ slider.addEventListener("touchend", () => {
   isSwiping = false;
 });
 
+// Инициализация галереи
 captionEl.innerHTML = galleryCaptions[0];
 captionEl.style.opacity = 1;
 updateIndicator();
-prevBtn.addEventListener("click", stopAutoSlide);
-nextBtn.addEventListener("click", stopAutoSlide);
-slider.addEventListener("touchstart", stopAutoSlide);
-
-function updateIndicator() {
-  indicatorEl.textContent = `${currentSlide + 1} / ${galleryImages.length}`;
-}
