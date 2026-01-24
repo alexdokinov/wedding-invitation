@@ -121,6 +121,7 @@ function updateIndicator() {
 }
 
 function updateSlide(index) {
+  captionEl.classList.add("is-fading");
   sliderImg.style.opacity = 0;
   captionEl.style.opacity = 0;
 
@@ -130,6 +131,9 @@ function updateSlide(index) {
 
     sliderImg.style.opacity = 1;
     captionEl.style.opacity = 1;
+    requestAnimationFrame(() => {
+      captionEl.classList.remove("is-fading");
+    });
 
     updateIndicator();
   }, 200);
