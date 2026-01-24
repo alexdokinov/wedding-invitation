@@ -6,10 +6,6 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: #2e2e2e;
-  scroll-behavior: smooth;
-
   background: transparent; /* ВАЖНО */
   position: relative;
   z-index: 1;
@@ -338,10 +334,6 @@ body::after {
 html {
   scroll-behavior: smooth;
 }
-
-body {
-  overscroll-behavior: none;
-}
 @keyframes float {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-6px); }
@@ -440,7 +432,6 @@ section {
 .section-inner {
   max-width: 720px;
   margin: 0 auto;
-  padding: 72px 48px;
 
   background: rgba(255, 255, 255, 0.38);
   backdrop-filter: blur(4px);
@@ -555,7 +546,6 @@ body {
 
 .section-inner {
   padding: 80px 56px;
-  position: relative;
   z-index: 1;
 }
 @media (max-width: 600px) {
@@ -1117,7 +1107,6 @@ body {
   }
 }
 .gallery-slider {
-  position: relative;
   overflow: visible;
 }
 @media (max-width: 600px) {
@@ -1177,4 +1166,3 @@ body {
     margin-bottom: 24px;
   }
 }
-
