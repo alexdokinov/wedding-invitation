@@ -429,6 +429,37 @@ section {
   padding: 140px 20px;
 }
 
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 20px;
+  color: rgba(216, 207, 196, 0.75);
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 207, 196, 0.6),
+    transparent
+  );
+}
+
+.section-divider__icon {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  opacity: 0.85;
+}
+
 .section-inner {
   max-width: 720px;
   margin: 0 auto;
