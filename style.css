@@ -11,6 +11,24 @@ body {
   z-index: 1;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(232, 206, 217, 0.35) 0%, rgba(232, 206, 217, 0.1) 35%, transparent 60%),
+    radial-gradient(circle at 85% 12%, rgba(215, 232, 226, 0.32) 0%, rgba(215, 232, 226, 0.08) 38%, transparent 62%),
+    radial-gradient(circle at 78% 72%, rgba(236, 214, 240, 0.3) 0%, rgba(236, 214, 240, 0.06) 40%, transparent 64%),
+    radial-gradient(circle at 20% 75%, rgba(240, 228, 206, 0.28) 0%, rgba(240, 228, 206, 0.05) 42%, transparent 66%),
+    radial-gradient(ellipse at 50% 50%, rgba(210, 224, 244, 0.25) 0%, rgba(210, 224, 244, 0.04) 45%, transparent 70%),
+    radial-gradient(ellipse at 30% 40%, rgba(235, 220, 198, 0.2) 0%, rgba(235, 220, 198, 0.04) 48%, transparent 72%);
+  filter: blur(2px);
+  animation: floating-accents 40s ease-in-out infinite alternate;
+}
+
 
 /* ===== ЭКРАН С ТАЙМЕРОМ ===== */
 .timer-section {
@@ -184,6 +202,38 @@ body::after {
 @media (max-width: 600px) {
   .dog-section h2 {
     font-size: 32px;
+  }
+}
+@keyframes floating-accents {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position:
+      12% 18%,
+      85% 12%,
+      78% 72%,
+      20% 75%,
+      50% 50%,
+      30% 40%;
+  }
+  50% {
+    transform: translate3d(0, -1.5%, 0) scale(1.02);
+    background-position:
+      10% 20%,
+      82% 16%,
+      74% 70%,
+      24% 78%,
+      54% 48%,
+      32% 44%;
+  }
+  100% {
+    transform: translate3d(0, 1.5%, 0) scale(1.04);
+    background-position:
+      14% 16%,
+      88% 10%,
+      80% 74%,
+      18% 72%,
+      48% 52%,
+      28% 36%;
   }
 }
 /* ===== ФОТО ЛАБРАДОРА ===== */
