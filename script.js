@@ -24,8 +24,8 @@ setInterval(updateTimer, 1000);
 
 // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
 const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
+  (entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       }
@@ -34,7 +34,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
 
 // ===== МУЗЫКА =====
 const music = document.getElementById("bg-music");
@@ -42,6 +42,7 @@ const musicBtn = document.getElementById("music-btn");
 
 music.volume = 0.25;
 let isPlaying = false;
+let musicStarted = false;
 
 musicBtn.addEventListener("click", () => {
   if (!isPlaying) {
@@ -53,30 +54,6 @@ musicBtn.addEventListener("click", () => {
   }
   isPlaying = !isPlaying;
 });
-
-// ===== ПРОГРЕСС ПРОКРУТКИ =====
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = (scrollTop / docHeight) * 100;
-  document.getElementById("scroll-progress").style.width = progress + "%";
-});
-
-// ===== ПАСХАЛКА АВГУСТА =====
-const august = document.getElementById("august-name");
-
-if (august) {
-  const tooltip = document.createElement("div");
-  tooltip.className = "august-tooltip";
-  tooltip.textContent = "Я всё равно буду просить 🥺";
-  august.appendChild(tooltip);
-
-  august.addEventListener("click", () => {
-    tooltip.classList.add("show");
-    setTimeout(() => tooltip.classList.remove("show"), 2500);
-  });
-}
-let musicStarted = false;
 
 function tryAutoPlay() {
   if (musicStarted) return;
@@ -90,72 +67,136 @@ function tryAutoPlay() {
 
 window.addEventListener("scroll", tryAutoPlay, { once: true });
 window.addEventListener("touchstart", tryAutoPlay, { once: true });
-/* ===== ГАЛЕРЕЯ-СЛАЙДЕР ===== */
 
-const galleryImages = [
-  "images/gallery/1.jpg",
-  "images/gallery/2.jpg",
-  "images/gallery/3.jpg",
-  "images/gallery/4.jpg",
-  "images/gallery/5.jpg",
-  "images/gallery/6.jpg"
+// ===== ПРОГРЕСС ПРОКРУТКИ =====
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById("scroll-progress").style.width = `${progress}%`;
+});
+
+// ===== ПАСХАЛКА АВГУСТА =====
+const august = document.getElementById("august-name");
+
+if (august) {
+  const tooltip = document.createElement("div");
+  tooltip.className = "august-tooltip";
+  tooltip.textContent = "Я всё равно буду просить";
+  august.appendChild(tooltip);
+
+  august.addEventListener("click", () => {
+    tooltip.classList.add("show");
+    setTimeout(() => tooltip.classList.remove("show"), 2500);
+  });
+}
+
+// ===== ГАЛЕРЕЯ-СЛАЙДЕР =====
+const gallerySlides = [
+  {
+    image: "images/gallery/1.jpg",
+    meta: "Осень 2022 • Первый месяц вместе",
+    caption:
+      "Здесь мы были знакомы всего лишь месяц. Тогда мы оба уже поняли: эта история надолго."
+  },
+  {
+    image: "images/gallery/2.jpg",
+    meta: "Осень 2023 • Первая годовщина",
+    caption:
+      "Наша первая годовщина. И тот самый момент, когда стало окончательно ясно: друг без друга уже никак."
+  },
+  {
+    image: "images/gallery/3.jpg",
+    meta: "2024 • Нас стало больше",
+    caption:
+      "К нашей команде присоединился новый важный герой. С этого момента каждый большой эпизод жизни мы проживаем уже втроем."
+  },
+  {
+    image: "images/gallery/4.jpg",
+    meta: "Осень 2024 • Вторая годовщина",
+    caption:
+      "Вторая годовщина. Спокойное, теплое счастье и ощущение дома, которое мы нашли друг в друге."
+  },
+  {
+    image: "images/gallery/5.jpg",
+    meta: "2025 • Вечер, который всё изменил",
+    caption:
+      "Тим сделал этот кадр перед самым важным вечером нашей жизни. Он думал, что я ничего не знаю. Но сердце уже догадывалось."
+  },
+  {
+    image: "images/gallery/6.jpg",
+    meta: "2025 • Она сказала «Да»",
+    caption:
+      "Оказалось, не зря догадывалось. Так началась новая глава нашей истории."
+  }
 ];
-const galleryCaptions = [
-  "Здесь мы были знакомы всего лишь месяц.<br>-Тогда я понял, что бежать мне некуда.<br>-Тогда я поняла, что он от меня никуда не убежит.",
-  "Это была наша первая годовщина.<br>Все-таки нужно было бежать...",
-  "На этой фотографии мы вместе уже чуть больше года.<br>К нашей команде присоединился новый игрок.<br>И каждый последующий важный момент нашей жизни он проживал вместе с нами.",
-  "Наша вторая годовщина.<br>Мы уже не представляли жизнь друг без друга",
-  "День нашей третьей годовщины.<br>Тим меня сфоткал перед самым прекрасным вечером нашей жизни.<br>Он думал, что я ничего не знаю.<br>Но я догадывалась.",
-  "Оказывается, догадывалась...<br>Она сказала: \"Да\""
-];
+
 let currentSlide = 0;
+let autoSlideTimer = null;
 
 const sliderImg = document.querySelector(".slider-image img");
 const captionEl = document.querySelector(".gallery-caption");
+const metaEl = document.querySelector(".gallery-meta");
 const prevBtn = document.querySelector(".slider-btn.prev");
 const nextBtn = document.querySelector(".slider-btn.next");
 const indicatorEl = document.querySelector(".gallery-indicator");
+const slider = document.querySelector(".gallery-slider");
 
-function updateIndicator() {
-  indicatorEl.textContent = `${currentSlide + 1} / ${galleryImages.length}`;
+function renderSlide(index) {
+  const slide = gallerySlides[index];
+
+  sliderImg.src = slide.image;
+  metaEl.textContent = slide.meta;
+  captionEl.textContent = slide.caption;
+  indicatorEl.textContent = `${index + 1} / ${gallerySlides.length}`;
 }
 
 function updateSlide(index) {
-  captionEl.classList.add("is-fading");
   sliderImg.style.opacity = 0;
   captionEl.style.opacity = 0;
+  metaEl.style.opacity = 0;
 
   setTimeout(() => {
-    sliderImg.src = galleryImages[index];
-    captionEl.innerHTML = galleryCaptions[index];
+    renderSlide(index);
 
     sliderImg.style.opacity = 1;
     captionEl.style.opacity = 1;
-    requestAnimationFrame(() => {
-      captionEl.classList.remove("is-fading");
-    });
-
-    updateIndicator();
+    metaEl.style.opacity = 1;
   }, 200);
 }
 
-prevBtn.addEventListener("click", () => {
-  currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+function showNextSlide() {
+  currentSlide = (currentSlide + 1) % gallerySlides.length;
   updateSlide(currentSlide);
+}
+
+function showPrevSlide() {
+  currentSlide = (currentSlide - 1 + gallerySlides.length) % gallerySlides.length;
+  updateSlide(currentSlide);
+}
+
+function stopAutoSlide() {
+  if (autoSlideTimer) {
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = null;
+  }
+}
+
+prevBtn.addEventListener("click", () => {
+  stopAutoSlide();
+  showPrevSlide();
 });
 
 nextBtn.addEventListener("click", () => {
-  currentSlide = (currentSlide + 1) % galleryImages.length;
-  updateSlide(currentSlide);
+  stopAutoSlide();
+  showNextSlide();
 });
-/* ===== SWIPE ДЛЯ ГАЛЕРЕИ ===== */
 
 let startX = 0;
 let isSwiping = false;
 
-const slider = document.querySelector(".gallery-slider");
-
 slider.addEventListener("touchstart", (e) => {
+  stopAutoSlide();
   startX = e.touches[0].clientX;
   isSwiping = true;
 });
@@ -165,15 +206,13 @@ slider.addEventListener("touchmove", (e) => {
 
   const diffX = e.touches[0].clientX - startX;
 
-  // свайп влево
   if (diffX < -60) {
-    nextBtn.click();
+    showNextSlide();
     isSwiping = false;
   }
 
-  // свайп вправо
   if (diffX > 60) {
-    prevBtn.click();
+    showPrevSlide();
     isSwiping = false;
   }
 });
@@ -182,7 +221,4 @@ slider.addEventListener("touchend", () => {
   isSwiping = false;
 });
 
-// Инициализация галереи
-captionEl.innerHTML = galleryCaptions[0];
-captionEl.style.opacity = 1;
-updateIndicator();
+renderSlide(currentSlide);

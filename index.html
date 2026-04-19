@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -25,6 +25,7 @@
 
 <!-- ===== ЭКРАН 1: ТАЙМЕР ===== -->
 <section class="timer-section">
+  <div class="hero-kicker fade-up">Обратный отсчет до свадьбы</div>
   <div class="timer fade-up">
     <div class="time-block fade-up">
       <span id="months">0</span>
@@ -48,18 +49,24 @@
     </div>
   </div>
 
-  <div class="scroll-hint">Приглашение ↓</div>
+  <div class="scroll-hint">Листайте вниз</div>
 </section>
 
 <!-- ===== ПРИГЛАШЕНИЕ ===== -->
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">Т&В</span>
+  <span class="divider-line"></span>
+</div>
 <section class="invite-section fade-up" id="invite">
   <div class="section-inner">
+    <div class="monogram monogram-invite" aria-hidden="true">Т&В</div>
     <h1 class="names">
   <span>Тимофей</span>
   <span class="amp">&</span>
   <span>Валерия</span>
 </h1>
-    <p class="date">24 июля 2026 (16:00)</p>
+    <p class="date"><span class="date-accent" aria-hidden="true"></span>24 июля 2026 (16:00)<span class="date-accent" aria-hidden="true"></span></p>
 
     <p class="text">
       С большой радостью приглашаем вас<br>
@@ -80,18 +87,18 @@
   </div>
 </section>
 
-<div class="section-divider" aria-hidden="true">
-  <svg class="section-divider__icon" viewBox="0 0 24 24" role="img" aria-label="Разделитель">
-    <path d="M12 20.5c-3.2-2.3-6.8-4.8-6.8-8.8a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 4-3.6 6.5-7.2 8.8Z" />
-  </svg>
-</div>
-
 <!-- ===== СПЕЦИАЛЬНЫЙ ГОСТ ===== -->
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">•</span>
+  <span class="divider-line"></span>
+</div>
 <section class="dog-section fade-up">
 <h2 class="section-title">Особый гость вечера 🐾</h2>
   <div class="section-inner">
 
     <p class="dog-name">
+      <span class="dog-badge">VIP guest</span>
       <span id="august-name">Август</span>
     </p>
 
@@ -134,13 +141,14 @@
   </div>
 </section>
 
-<div class="section-divider" aria-hidden="true">
-  <svg class="section-divider__icon" viewBox="0 0 24 24" role="img" aria-label="Разделитель">
-    <path d="M12 20.5c-3.2-2.3-6.8-4.8-6.8-8.8a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 4-3.6 6.5-7.2 8.8Z" />
-  </svg>
-</div>
+
 
 <!-- ===== ЦВЕТЫ И ВИНО ===== -->
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">Т&В</span>
+  <span class="divider-line"></span>
+</div>
 <section class="wine-section fade-up">
 <h2 class="section-title">Небольшая просьба 🤍</h2>
   <div class="section-inner">
@@ -163,39 +171,62 @@
   </div>
 </section>
 
-<div class="section-divider" aria-hidden="true">
-  <svg class="section-divider__icon" viewBox="0 0 24 24" role="img" aria-label="Разделитель">
-    <path d="M12 20.5c-3.2-2.3-6.8-4.8-6.8-8.8a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 4-3.6 6.5-7.2 8.8Z" />
-  </svg>
-</div>
-
 <!-- ===== ЦВЕТОВАЯ ПАЛИТРА ===== -->
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">•</span>
+  <span class="divider-line"></span>
+</div>
 <section class="palette-section fade-up">
   <div class="section-inner">
 
     <p class="palette-intro">
-      Цветовая палитра нашей свадьбы<br>
-      скоро появится здесь 🤍
+      Цветовая палитра нашей свадьбы.<br>🤍
     </p>
 
     <div class="palette-grid">
-      <div class="palette-item">Цвет</div>
-      <div class="palette-item">Цвет</div>
-      <div class="palette-item">Цвет</div>
-      <div class="palette-item">Цвет</div>
-      <div class="palette-item">Цвет</div>
+      <div class="palette-item palette-olive">Оливковый</div>
+      <div class="palette-item palette-black">Черный</div>
+      <div class="palette-item palette-gray">Серый</div>
+      <div class="palette-item palette-coffee">Кофейный</div>
+      <div class="palette-item palette-north-sea">Северное море</div>
+      <div class="palette-item palette-lavender">Лавандовый</div>
     </div>
 
   </div>
 </section>
 
 <div class="section-divider" aria-hidden="true">
-  <svg class="section-divider__icon" viewBox="0 0 24 24" role="img" aria-label="Разделитель">
-    <path d="M12 20.5c-3.2-2.3-6.8-4.8-6.8-8.8a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 4-3.6 6.5-7.2 8.8Z" />
-  </svg>
+  <span class="divider-line"></span>
+  <span class="divider-mark">Т&В</span>
+  <span class="divider-line"></span>
 </div>
+<section class="palette-section avoid-section fade-up">
+  <div class="section-inner">
+    <p class="palette-intro">
+      Цвета, которые мы бы <b>НЕ ХОТЕЛИ</b> видеть на свадьбе
+    </p>
+
+    <div class="palette-grid avoid-grid">
+      <div class="palette-item palette-white">Белый</div>
+      <div class="palette-item palette-beige">Бежевый</div>
+      <div class="palette-item palette-ivory">Слоновая кость</div>
+      <div class="palette-item palette-red">Красный</div>
+      <div class="palette-item palette-neon">Неоновый</div>
+    </div>
+
+    <p class="palette-note">
+      <b>Дополнительно: постарайтесь избегать слишком ярких цветов</b>
+    </p>
+  </div>
+</section>
 
 <!-- ===== ГАЛЕРЕЯ ===== -->
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">•</span>
+  <span class="divider-line"></span>
+</div>
 <section class="gallery-section fade-up">
 
   <div class="gallery-header">
@@ -203,6 +234,7 @@
   </div>
 
   <div class="section-inner">
+    <div class="monogram monogram-gallery" aria-hidden="true">Т&В</div>
     <div class="gallery-slider">
       
 
@@ -214,6 +246,7 @@
 
   <button class="slider-btn next">›</button>
 </div>
+<p class="gallery-meta"></p>
 <p class="gallery-caption"></p>
       <div class="gallery-indicator"></div>
 
@@ -221,21 +254,22 @@
 
 </section>
 
-<div class="section-divider" aria-hidden="true">
-  <svg class="section-divider__icon" viewBox="0 0 24 24" role="img" aria-label="Разделитель">
-    <path d="M12 20.5c-3.2-2.3-6.8-4.8-6.8-8.8a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 4-3.6 6.5-7.2 8.8Z" />
-  </svg>
-</div>
-
 <!-- ===== КАК ДОБРАТЬСЯ ===== -->
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">Т&В</span>
+  <span class="divider-line"></span>
+</div>
 <section class="map-section fade-up">
 <h2 class="section-title">Как добраться 🗺️</h2>
   <div class="section-inner">
+    <div class="monogram monogram-map" aria-hidden="true">Т&В</div>
 
     <p class="map-text">
       Мы будем ждать вас<br>
       в загородном клубе «SOMA»
     </p>
+    <p class="map-subtext">Начало в 16:00</p>
 
     <div class="map-wrapper">
       <iframe
@@ -248,8 +282,27 @@
       class="map-link"
       href="https://yandex.ru/maps/?text=Загородный%20клуб%20SOMA"
       target="_blank">
-      Построить маршрут →
+      <span class="map-link-label">Построить маршрут</span>
+      <span class="map-link-note">Открыть в Яндекс Картах</span>
     </a>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <span class="divider-mark">•</span>
+  <span class="divider-line"></span>
+</div>
+<section class="closing-section fade-up">
+  <div class="section-inner">
+    <div class="monogram closing-monogram" aria-hidden="true">Т&В</div>
+    <p class="closing-kicker">24 июля 2026</p>
+    <h2 class="closing-title">Ждем вас</h2>
+    <p class="closing-text">
+      Спасибо, что разделите с нами этот день.<br>
+      До встречи на нашем празднике любви, тепла и самых важных объятий.
+    </p>
+    <p class="closing-signoff">С любовью, Тимофей и Валерия</p>
   </div>
 </section>
 
